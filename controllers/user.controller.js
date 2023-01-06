@@ -15,3 +15,7 @@ module.exports.userInfo = (req, res) => {
         else console.log('id err : ' + err)
     }).select('-password')
 }
+    
+    module.exports.updateUser = async (req, res) => {
+
+    }
