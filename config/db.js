@@ -1,12 +1,10 @@
 const mongoose = require('mongoose')
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.1',
+    .connect('mongodb+srv://Amine:AMINEnaruto123@cluster0.xa240.mongodb.net/test',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        // useCreateIndex: true,
-        // useFindAndModify: false
     }
     )
     .then(() => console.log('connected youpi'))
