@@ -10,5 +10,9 @@ router.get('/', userController.getAllUsers)
 router.get('/:id', userController.userInfo)
 router.put('/:id', userController.updateUser)
 router.delete('/:id', userController.deleteUser)
+// on patch car follower et following sont des tableau de chaine de carractere
+// et pour pas supprimer tout le tableau on fait un patch et pas un put 
+router.patch('/follow/:id', userController.follow)
+router.patch('/unfollow/:id', userController.unfollow)
 
 module.exports = router
