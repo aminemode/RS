@@ -38,3 +38,11 @@ module.exports.requireAuth = (req, res, next) => {
         console.log('rouh 9awed')
     }
 }
+
+module.exports.requireLogin = (req, res, next) => {
+    // const token = req.cookies.jwt
+    // if (!token) {
+    //     res.status(400).send('no cookie')
+    // }
+    next()
+} 
