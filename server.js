@@ -8,6 +8,18 @@ require('./config/db')
 const {checkUser, requireAuth, requireLogin} = require('./middleware/auth.middleware')
 const app = express()
 const port = process.env.PORT
+const cors = require('cors')
+
+const corsOptions = {
+    origin: process.env.CLIENT_URL,
+    crendentials: true,  
+    'allowedHeaders': ['sessionId', 'Content-Type'],
+    'exposedHeaders': ['sessionId'],
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    'preflightContinue': false
+  }
+
+app.use(cors())
 
 
 app.use(bodyParser.json());

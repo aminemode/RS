@@ -27,4 +27,18 @@ module.exports.uploadProfil = async (req, res) => {
             `${__dirname}/../client/public/uploads/profil/${fileName}`
         )
     )
+
+    try {
+        await UserModel.findByIdAndUpdate(
+            req.body.userId,
+            { $set : {picture: "./upoads/profil/" + fileName}},
+            { new: true, upsert: true, setDefaultOnInsert: true},
+            (err, docs) => {
+                if (!err) return res.send(docs)
+                else return res.status(500).send({ message: err })
+            }
+        )
+    } catch (err) {
+        return res.status(500).send({ message: err })
+    }
 }
